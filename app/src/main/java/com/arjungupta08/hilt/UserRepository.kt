@@ -1,12 +1,11 @@
 package com.arjungupta08.hilt
 
-import android.util.Log
 import javax.inject.Inject
 
-class UserRepository @Inject constructor() {
+class UserRepository @Inject constructor(val loggerService: LoggerService) {
 
     fun saveUser(eMail : String, password : String) {
-        Log.d("SAVED", "$eMail, $password")
+        loggerService.logging()
     }
 
 }
