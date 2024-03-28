@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.FragmentComponent
+import javax.inject.Named
 import javax.inject.Singleton
 
 //@InstallIn(Singleton::class)
@@ -14,6 +15,12 @@ import javax.inject.Singleton
 class UserModule {
     @Provides
     fun providesUserRepo() : UserRepository {
+        return SQLRepository()
+    }
+
+    @Provides
+    @FirebaseQualifier
+    fun providesFirebaseRepo() : UserRepository {
         return FirebaseRepository()
     }
 }
